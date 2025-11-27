@@ -67,19 +67,7 @@ function loadData() {
     if (data) {
         teachers = JSON.parse(data);
     } else {
-        // Default data
-        teachers = [
-            {
-                id: Date.now(),
-                name: 'M. Dupont',
-                subject: 'Mathématiques',
-                color: 'red',
-                score: 42,
-                lastSavedScore: 42,
-                history: [{ timestamp: Date.now(), score: 42 }]
-            }
-        ];
-        saveData();
+        teachers = [];
     }
 }
 
