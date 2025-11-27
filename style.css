@@ -12,6 +12,13 @@
     --color-green: #4ade80;
     --color-purple: #c084fc;
     --color-orange: #fb923c;
+    --color-pink: #f472b6;
+    --color-yellow: #fbbf24;
+    --color-cyan: #22d3ee;
+    --color-indigo: #818cf8;
+    --color-teal: #2dd4bf;
+    --color-lime: #a3e635;
+    --color-rose: #fb7185;
 
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
     --glass-border: 1px solid rgba(255, 255, 255, 0.1);
@@ -324,6 +331,34 @@ h1 {
     background: var(--color-orange);
 }
 
+.save-btn-pink {
+    background: var(--color-pink);
+}
+
+.save-btn-yellow {
+    background: var(--color-yellow);
+}
+
+.save-btn-cyan {
+    background: var(--color-cyan);
+}
+
+.save-btn-indigo {
+    background: var(--color-indigo);
+}
+
+.save-btn-teal {
+    background: var(--color-teal);
+}
+
+.save-btn-lime {
+    background: var(--color-lime);
+}
+
+.save-btn-rose {
+    background: var(--color-rose);
+}
+
 .save-btn:hover:not(:disabled) {
     transform: translateY(-1px);
     filter: brightness(1.1);
@@ -421,6 +456,7 @@ h1 {
 .color-picker {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .color-picker input[type="radio"] {
@@ -459,6 +495,34 @@ h1 {
 
 .color-swatch.orange {
     background: var(--color-orange);
+}
+
+.color-swatch.pink {
+    background: var(--color-pink);
+}
+
+.color-swatch.yellow {
+    background: var(--color-yellow);
+}
+
+.color-swatch.cyan {
+    background: var(--color-cyan);
+}
+
+.color-swatch.indigo {
+    background: var(--color-indigo);
+}
+
+.color-swatch.teal {
+    background: var(--color-teal);
+}
+
+.color-swatch.lime {
+    background: var(--color-lime);
+}
+
+.color-swatch.rose {
+    background: var(--color-rose);
 }
 
 .btn-submit {
@@ -535,4 +599,102 @@ h1 {
     height: 100%;
     pointer-events: none;
     z-index: 999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .teacher-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .fab-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 56px;
+        height: 56px;
+        font-size: 1.75rem;
+    }
+
+    .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .teacher-card {
+        padding: 1.25rem;
+    }
+
+    .score-value {
+        font-size: 2rem;
+    }
+
+    .empty-icon {
+        font-size: 4rem;
+    }
+
+    .empty-state h2 {
+        font-size: 1.5rem;
+    }
+
+    .empty-state p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .emoji {
+        font-size: 1.5rem;
+    }
+
+    .teacher-card {
+        padding: 1rem;
+    }
+
+    .card-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .score-container {
+        padding: 0.75rem;
+    }
+
+    .score-value {
+        font-size: 1.75rem;
+    }
+
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .fab-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .medal {
+        font-size: 1.5rem;
+        right: 2.5rem;
+    }
 }
