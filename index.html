@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Rage Rank</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#38bdf8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RageRank">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Teacher Rage Rank <span class="emoji">🤬</span></h1>
+        </header>
+
+        <main id="teacher-list" class="teacher-grid">
+            <!-- Teachers will be injected here -->
+        </main>
+    </div>
+
+    <!-- FAB Button -->
+    <button id="add-teacher-btn" class="fab-btn">+</button>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2>Ajouter un Prof</h2>
+            <form id="add-teacher-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" required placeholder="Ex: M. Dupont">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Matière</label>
+                    <input type="text" id="subject" required placeholder="Ex: Maths">
+                </div>
+                <div class="form-group">
+                    <label>Couleur</label>
+                    <div class="color-picker">
+                        <input type="radio" name="color" value="red" id="c-red" checked>
+                        <label for="c-red" class="color-swatch red"></label>
+
+                        <input type="radio" name="color" value="blue" id="c-blue">
+                        <label for="c-blue" class="color-swatch blue"></label>
+
+                        <input type="radio" name="color" value="green" id="c-green">
+                        <label for="c-green" class="color-swatch green"></label>
+
+                        <input type="radio" name="color" value="purple" id="c-purple">
+                        <label for="c-purple" class="color-swatch purple"></label>
+
+                        <input type="radio" name="color" value="orange" id="c-orange">
+                        <label for="c-orange" class="color-swatch orange"></label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-content confirm-modal-content">
+            <h2>⚠️ Confirmation</h2>
+            <p id="confirm-message" style="margin: 1.5rem 0; color: var(--text-secondary); line-height: 1.6;"></p>
+            <div class="confirm-buttons">
+                <button id="confirm-cancel" class="btn-cancel">Annuler</button>
+                <button id="confirm-delete" class="btn-delete">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
